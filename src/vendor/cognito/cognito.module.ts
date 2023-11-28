@@ -1,9 +1,7 @@
-import { Global, Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { AUTH_TOKEN } from '../../auth/auth.interface';
 import { CognitoService } from './cognito.service';
-import { ConfigurableModuleClass } from '@nestjs/common/cache/cache.module-definition';
 
-@Global()
 @Module({
   providers: [
     {
@@ -11,6 +9,5 @@ import { ConfigurableModuleClass } from '@nestjs/common/cache/cache.module-defin
       useClass: CognitoService,
     },
   ],
-  exports: [AUTH_TOKEN],
 })
-export class CognitoModule extends ConfigurableModuleClass {}
+export class CognitoModule {}
